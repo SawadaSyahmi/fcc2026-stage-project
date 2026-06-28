@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FCC2026 Stage AI Controller</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="stage-page">
+  <div class="theme-band top" aria-hidden="true"></div>
+
+  <main class="app-shell stage-shell">
+    <section class="brand-hero">
+      <div class="brand-card">
+        <img class="brand-lockup" src="assets/fcc2026-brand-lockup.png" alt="Future Cities Conference 2026 branding" />
+      </div>
+      <div class="hero-copy">
+        <div class="badge">FCC2026 Gimmick · Stage</div>
+        <h1>AI Stage Controller</h1>
+        <p class="muted">Press start, speak the approved command, and the AV room will receive a safe initiation signal through Supabase.</p>
+      </div>
+    </section>
+
+    <section class="panel grid-2">
+      <div>
+        <label for="sessionId">Session ID</label>
+        <input id="sessionId" autocomplete="off" />
+      </div>
+      <div>
+        <label for="operatorPin">Operator PIN</label>
+        <input id="operatorPin" type="password" placeholder="Enter ceremony PIN" autocomplete="current-password" />
+      </div>
+    </section>
+
+    <section class="orb-panel">
+      <div class="mini-title">Future Cities Conference 2026</div>
+      <div id="aiOrb" class="ai-orb idle" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <h2 id="statusTitle">Idle</h2>
+      <p id="statusText" class="muted">Connect to Supabase, then arm the AI.</p>
+      <p class="trigger-line">Allowed command: <strong id="triggerPhrase"></strong></p>
+    </section>
+
+    <section class="control-grid">
+      <button id="connectBtn" class="btn secondary">Connect</button>
+      <button id="armBtn" class="btn">Arm AI</button>
+      <button id="voiceBtn" class="btn primary">Start Voice Input</button>
+      <button id="manualBtn" class="btn warning">Manual Initiate</button>
+      <button id="resetBtn" class="btn danger">Reset / Stop AV</button>
+    </section>
+
+    <section class="panel">
+      <h3>Voice Received</h3>
+      <div id="transcriptBox" class="transcript">No voice input yet.</div>
+      <div class="small-log" id="logBox"></div>
+    </section>
+  </main>
+
+  <div class="theme-band bottom" aria-hidden="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="stage.js"></script>
+</body>
+</html>
